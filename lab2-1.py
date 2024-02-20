@@ -22,7 +22,14 @@ class Lab2Problem(ScalarProblem):
         super().__init__(maximize=True)
         
     def evaluate(self, ind):
-        return 0
+        
+        bitString = ''.join(['0' if val == False else '1' for val in ind])
+        l = len(bitString)
+        x = int(bitString, 2)
+
+        s = (x / (2**l - 1))**10
+
+        return s
 
 
 if __name__ == '__main__':
